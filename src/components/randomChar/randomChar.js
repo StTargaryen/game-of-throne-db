@@ -19,17 +19,20 @@ const RandomTitle = styled.h4`
 
 
 export default class RandomChar extends Component {
-    constructor() {
-        super();
-        this.updateChar();
-    }
-
     state = {
         char: {},
         loading: true,
         error: false
     }
     gotService = new GotService();
+
+    componentDidMount() {
+        this.updateChar();
+    }
+
+    componentWillUnmount() {
+        console.log('Unmounting');
+    }
 
     onCharLoaded = (char) => {
         this.setState({char, loading: false})
@@ -51,6 +54,7 @@ export default class RandomChar extends Component {
 
 
     render() {
+        console.log('Render')
         const {char, loading, error} = this.state;
         const errorMessage =  error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner/> : null;

@@ -34,33 +34,33 @@ export default class GotService {
         return this.getResource(`/books/${id}`);
     }
 
-    _transformCharacter(char) {
+    _transformCharacter({name, gender, culture, born, died}) {
         return {
-            name: char.name,
-            gender: char.gender,
-            culture: char.culture,
-            born: char.born,
-            died: char.died,
+            name: name,
+            gender: gender,
+            culture: culture,
+            born: born,
+            died: died,
         }
     }
 
-    _transformHouse(house) {
+    _transformHouse({name, region, words, houseitles, overlord, ancestralWeapons}) {
         return {
-            name: house.name,
-            region: house.region,
-            words: house.words,
-            titles: house.titles,
-            overlord: house.overlord,
-            ancestralWeapons: house.ancestralWeapons
+            name: name,
+            region: region,
+            words: words,
+            titles: houseitles,
+            overlord: overlord,
+            ancestralWeapons: ancestralWeapons
         }
     }
 
-    _transformBook(book) {
+    _transformBook({name, numberOfPages, publister, released}) {
         return {
-            name: book.name,
-            numberOfPages: book.numberOfPages,
-            publister: book.publister,
-            released: book.released
+            name: name,
+            numberOfPages: numberOfPages,
+            publister: publister,
+            released: released
         }
     }
 };
